@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VulcanOS / Wiki</title>
+    <title>Epoch / Wiki</title>
 
 
 
@@ -357,7 +357,7 @@
             </div>
 
             <div class="title">
-                VulcanOS <span>/ wiki</span>
+                Epoch <span>/ wiki</span>
             </div>
         </div>
 
@@ -378,7 +378,7 @@
             </button>
 
            <a href="https://discord.gg/vXQAcUjxjf">Discord</a>
-           <a href="iso.html">Grab the ISO</a>
+           <a href="iso.html">Download Epoch</a>
         </nav>
     </header>
 
@@ -386,9 +386,9 @@
         <div class="toc-title">Table of contents</div>
 
         <ol>
-            <li><a href="#Introduction">Introduction</a></li>
+            <li><a href="#thing-1">Introduction</a></li>
             <li><a href="#Installation">Installation</a></li>
-            <li><a href="#Bootstrapd">Bootstrapd</a></li>
+            <li><a href="#CoreComponents">Core Components</a></li>
             <li><a href="#Development">Development</a></li>
             <li><a href="#History">History</a></li>
             <li><a href="#Credits">Credits</a></li>
@@ -401,71 +401,84 @@
             <h2>1. Introduction</h2>
 
             <p>
-                Hello and Welcome to the VulcanOS official website made by dudas131! In this website we will include things such as:
+                Welcome to the official Epoch wiki! Epoch is an experimental x86_64 operating system project focused on building its own system from the ground up. This website covers topics such as:
                  <br><br>
-                - The Installation Process
+                - Installing and running Epoch
                  <br><br>
-                - The Development Process
+                - Kernel and system development
                  <br><br>
-                - Credits
+                - Built-in tools and applications
                  <br><br>
-                - Among other details.
+                - Project history, contributors, and other information.
         </section>
 
         <section id="Installation">
             <h2>2. Installation</h2>
 
             <p>
-                This is the updated guide for the VulcanOS installation process, which may be updated in the future due to possible changes and updates to the OS, please open an issue if this guide doesn't work.
+                This section describes the general process for trying an Epoch ISO. Epoch is an experimental operating system, so installation steps and available features may change as development continues. Always check the notes included with the specific ISO you are using.
             </p>
 
             <p>
-                First things first, put the ISO onto a spare flash drive. Plug the flash drive into the PC, boot the PC, and press the appropriate key to enter the BIOS/UEFI. The key varies depending on the manufacturer of your PC or motherboard. Once you're in the BIOS/UEFI, set the USB drive as the primary boot device and reboot the PC.
+                To get started, write the Epoch ISO to a spare USB flash drive using an image-writing utility. Connect the drive to the target PC, restart the machine, and open its BIOS/UEFI boot menu. The required key depends on the computer or motherboard manufacturer.
             </p>
 
             <p>
-    After that, wait for your machine to boot. When you reach the command line, type:
-            </p>
-
-            <pre><code>bootstrapd</code></pre>
-
-            <p>
-    After entering the command, wait for the daemon to load. Once it loads, select your init and then your DE (Desktop Environment).
+                Select the USB drive as the boot device and continue. If the image supports your hardware, Epoch should begin its boot process.
             </p>
 
             <p>
-    After completing the setup, reboot your PC. Your machine should then boot into your selected graphical user interface.
+                Once the system starts, follow the instructions provided by the current build. Some components and installation steps may still be under development.
+            </p>
+
+            <p>
+                Before using Epoch on a primary machine, remember that development builds are experimental and may not provide the reliability or hardware support of a finished operating system.
             </p>
         </section>
-        <section id="Bootstrapd">
-        <h2>3. Bootstrapd</h2>
+        <section id="CoreComponents">
+        <h2>3. Core Components</h2>
 
         <p>
-            Bootstrapd is a service provided by the operating system during and after installation that allows the user to choose which DE/WM and init system they want to use for their OS.
+            Epoch is being developed as an independent operating system, with its own kernel and core system components rather than simply acting as a preconfigured desktop distribution.
             <br><br>
-            The DEs currently supported are KDE and XFCE4, while Hyprland and other DEs/WMs will be supported in the future.
+            The project includes work on low-level system foundations such as booting, memory management, scheduling, filesystems, and communication between applications and the kernel.
             <br><br>
-            As for init systems, the currently available options are SystemD, OpenRC, runit, and SysVinit.
+            Epoch also has a package format and package-management tools, alongside early userspace applications such as a file manager and Pong. These components are evolving as the system develops.
         </p>
+
+        <h3>Compatibility and Applications</h3>
+
+        <p>
+            The project is working toward loading ELF applications and providing system calls that allow programs to interact with the operating system. Linux application compatibility is a longer-term goal and depends on implementing the required interfaces and supporting libraries.
+        </p>
+
+        <h3>Networking</h3>
+
+        <p>
+            Networking is part of the ongoing development effort. The goal is to provide the foundations needed for network interfaces and common network communication, with functionality expanding as drivers and network services are implemented and tested.
+        </p>
+        </section>
 
 <section id="Development"> <h2>4. Development</h2>
 <h3>Main Development Focus</h3>
 
 <p>
-    The current development focus for VulcanOS is expanding compatibility and support across the system. This includes adding support for more desktop environments (DEs) and init systems, while also working toward broader application support and improved system security.
+    Epoch's development is focused on building and improving the operating system's own foundations. This includes kernel functionality, hardware support, memory and process management, filesystems, system calls, executable loading, and networking.
 </p>
 
 <p>
-    In the far future, VulcanOS aims to develop its own desktop environment and init system, giving the project greater control over the user experience and core system components.
+    Alongside the core system, development is also focused on creating a useful userspace: desktop and graphical features, command-line tools, built-in applications, and a package ecosystem that makes it easier to install and manage software.
 </p>
 
 <h3>Development Goals</h3>
 
 <ul>
-    <li>Expand support for additional desktop environments and init systems.</li>
-    <li>Improve application compatibility and support.</li>
-    <li>Strengthen security through kernel randomization, memory protection, cryptography, and other randomization techniques.</li>
-    <li>Long-term: develop a native VulcanOS desktop environment and init system.</li>
+    <li>Continue developing the kernel, boot process, memory management, and scheduler.</li>
+    <li>Improve filesystem support, system calls, and ELF application loading.</li>
+    <li>Expand hardware and networking support.</li>
+    <li>Develop the desktop interface and essential built-in applications.</li>
+    <li>Improve the VPK package format and tools for installing, removing, and managing software.</li>
+    <li>Work toward broader Linux application compatibility over time.</li>
 </ul>
 
 </section> <section id="thing-5">
@@ -474,29 +487,23 @@
             <h2>5. History</h2>
 
 <p>
-    VulcanOS began on January 21st, when <strong>dudas131</strong>, tired of working on Python development, decided to explore operating system development instead.
+    Epoch is the continuation of the operating-system development work that began with earlier project experiments. The project has changed direction over time, moving from assembling an existing Linux-based system toward developing a more independent operating system.
 </p>
 
-<h3>The Early Names</h3>
+<h3>The Project's Direction</h3>
 
 <p>
-    The project was originally named <strong>MonoOS</strong>. The name was later changed to <strong>OneOS</strong>, as MonoOS felt too corporate. OneOS was eventually renamed to <strong>VulcanOS</strong> because OneOS felt too generic.
+    Earlier versions explored a minimal Gentoo-based system and configurable system components. As the project evolved, its focus shifted toward creating a custom x86_64 operating system with its own kernel and low-level components.
 </p>
 
-<h3>How the Project Evolved</h3>
+<h3>How the Project Is Evolving</h3>
 
 <p>
-    During the OneOS era, the project was written mostly in C++. Over time, VulcanOS moved toward being primarily written in C.
-</p>
-
-<p>
-    Throughout its development, VulcanOS reached several important milestones, including its early kernel development, first successful boots, filesystem and VFS development, working init systems, and desktop environment support. These milestones helped shape VulcanOS from an experiment into the hobbyist operating system it is today.
+    Development has covered several areas, including booting, filesystem and virtual filesystem work, scheduling, userspace, package management, and graphical applications. More recent work has added features such as a file manager, Pong, an ELF loader, system calls, and networking support, with their completeness continuing to depend on testing and further development.
 </p>
 
 <p>
-    The project continues to evolve as an experimental x86_64 operating system.
-</p>
-
+    Epoch remains an experimental project. Its architecture, features, and development priorities may continue to change as new components are built and tested.
 </p>
 
 </section>
@@ -505,30 +512,30 @@
             <h2>6. Credits</h2>
 
 <p>
-    VulcanOS was originally created by <strong>dudas131</strong> as an experimental and hobbyist x86_64 operating system project.
+    Epoch is an independent operating-system development project created and maintained by its development team.
 </p>
 
 <h3>Inspiration</h3>
 
 <p>
-    VulcanOS is inspired by <strong>OpenBSD</strong>, particularly its focus on security, as well as <strong>BoredOS</strong>.
+    Epoch draws inspiration from operating-system development projects and systems that emphasize control, simplicity, modularity, and careful engineering. Its goal is to develop its own foundations while learning from existing operating systems.
 </p>
 
 <h3>Special Thanks</h3>
 
 <ul>
-    <li><strong>Rafa</strong> — Created the filesystem (FS) and virtual filesystem (VFS) components.</li>
-    <li><strong>Murilos</strong> — Helped make several init systems workable.</li>
-    <li><strong>Twister</strong> — Tester and project supporter.</li>
-    <li><strong>Leo</strong> — Tester and project supporter.</li>
+    <li><strong>Rafa</strong> — Contributions to filesystem and virtual filesystem development.</li>
+    <li><strong>Murilos</strong> — Help and collaboration during the project's development.</li>
+    <li><strong>Twister</strong> — Testing and project support.</li>
+    <li><strong>Leo</strong> — Testing and project support.</li>
 </ul>
 
 <p>
-    A special thanks to everyone who has tested, contributed to, or supported VulcanOS along the way.
+    Thanks to everyone who has tested the system, contributed ideas, reported issues, or supported the project.
 </p>
 
 <p>
-    Thanks for checking out VulcanOS!
+    Thanks for checking out Epoch!
 </p>
 
 <br><br>
@@ -538,16 +545,15 @@
 
 
 
-
     </main>
 
     <footer>
-        <div>VulcanOS Wiki</div>
+        <div>Epoch Wiki</div>
 
         <div class="footer-links">
 <a href="#about">About</a>
 <a href="#Development">Development</a>
-<a href="https://github.com/dudzproductions101-ops/VulcanOS">GitHub</a>
+<a href="https://github.com/dudzproductions101-ops">GitHub</a>
 <a href="https://discord.com/invite/B2KFTCASUw">Discord</a>
 
         </div>
